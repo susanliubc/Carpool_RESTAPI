@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/susanliubc/Carpool_RESTAPI/issues"
   },
-  "homepage": "https://github.com/susanliubc/Carpool_RESTAPI#readme"
+  "homepage": "https://github.com/susanliubc/Carpool_RESTAPI#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
