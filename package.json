@@ -1,0 +1,19 @@
+{
+  "name": "carpool_restapi",
+  "version": "1.0.0",
+  "description": "a React API of carpool service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susanliubc/Carpool_RESTAPI.git"
+  },
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/susanliubc/Carpool_RESTAPI/issues"
+  },
+  "homepage": "https://github.com/susanliubc/Carpool_RESTAPI#readme"
+}
