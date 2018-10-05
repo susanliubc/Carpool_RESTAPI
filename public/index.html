@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>carpoolwithus</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href='style.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <h1 class='title'>carpoolwithus - a carpool REST API</h1>
+    <div id='homepage'>
+        <h1>Find a carpool driver in your area!</h1>
+        <div id='driver'></div>
+    </div>
+
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+    <!-- Create a react component -->
+    <script type="text/babel">
+        class Drivers extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    drivers: []
+                };
+            }
+            handleSubmit(e) {
+                e.preventDefault();
+                let lng = this.refs.lng.value;
+                let lat = this.refs.lat.value;
+                fetch(`/api/drivers?lng=${lng}&lat=${lat}`)
+                    .then(data => {
+                        return data.json();
+                    })
+                    .then(json => {
+                        this.setState({
+                            drivers: json
+                        });
+                    });
+            }
+            render() {
+                let drivers = this.state.drivers;
+                drivers = drivers.map((driver, index) => {
+                    return (
+                        <li key={index}>
+                            <span className={driver.available? "true":"false"}></span>
+                            <span className="name">{driver.name}</span>
+                            <span className="gender">{driver.gender}</span>
+                            <span className="destination">{driver.destination}</span>
+                            <span className="dist">{Math.floor(driver.dist.calculated / 1000)} km</span>
+                        </li>
+                    );
+                });
+                return (
+                    <div id="driver-container">
+                        <form id="search" onSubmit={this.handleSubmit.bind(this)}>
+                            <label>Enter your latitude</label>
+                            <input type="text" ref="lat" placeholder="latitude" required />
+                            <label>Enter your longitude</label>
+                            <input type="text" ref="lng" placeholder="longitude" required />
+                            <input type="submit" value="Find Drivers" />
+                        </form>
+                        <ul>{drivers}</ul>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(<Drivers />, document.getElementById("driver"));
+    </script>
+
+</body>
+</html>
