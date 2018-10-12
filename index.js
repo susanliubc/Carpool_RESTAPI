@@ -8,7 +8,7 @@ const app = express();
 
 // connect to mongodb
 //mongoose.connect("mongodb://localhost/carpoolwithus", {useNewUrlParser: true});
-//change to mLab for glitch demanstration
+//change to mLab for glitch demonstration
 mongoose.connect("mongodb://driver:driver1@ds131323.mlab.com:31323/carpoolwithus", {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 
