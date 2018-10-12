@@ -7,7 +7,9 @@ const port = process.env.port || 4000;
 const app = express();
 
 // connect to mongodb
-mongoose.connect("mongodb://localhost/carpoolwithus", {useNewUrlParser: true});
+//mongoose.connect("mongodb://localhost/carpoolwithus", {useNewUrlParser: true});
+//change to mLab for glitch demanstration
+mongoose.connect("mongodb://driver:driver1@ds131323.mlab.com:31323/carpoolwithus", {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 
 //set up static files
