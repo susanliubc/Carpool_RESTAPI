@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/susanliubc/Carpool_RESTAPI.git"
   },
-  "author": "me",
-  "license": "ISC",
+  "author": "susanliu",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/susanliubc/Carpool_RESTAPI/issues"
   },
